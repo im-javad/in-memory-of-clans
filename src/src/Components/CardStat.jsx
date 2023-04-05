@@ -1,8 +1,10 @@
 import React from "react";
 
-function CardStat({ type, stat, statValue }) {
+function CardStat({ noBorder, stat, statValue }) {
+  let className = "one-third";
+  if (noBorder) className += " no-border";
   return (
-    <div className={type}>
+    <div className={className}>
       <div className="stat">{stat}</div>
       <div className="stat-value">{statValue}</div>
     </div>

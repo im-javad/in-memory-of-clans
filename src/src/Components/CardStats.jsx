@@ -1,12 +1,20 @@
 import React from "react";
 import CardStat from "./CardStat";
 
-function CardStats(props) {
+function CardStats({ units , name }) {
+  const stats = units.map((unit, index) => (
+    <CardStat
+      noBorder={index === units.length - 1}
+      stat={unit.state}
+      statValue={unit.value}
+    />
+  ));
+
   return (
-    <div className="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
-      <CardStat type={"one-third"} stat={20} statValue={"Training"} />
-      <CardStat type={"one-third"} stat={16} statValue={"Speed"} />
-      <CardStat type={"one-third no-border"} stat={150} statValue={"Cost"} />
+    <div
+      className={`clash-card__unit-stats clash-card__unit-stats--${name} clearfix`}
+    >
+      {stats}
     </div>
   );
 }
